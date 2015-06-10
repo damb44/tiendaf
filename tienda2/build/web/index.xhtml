@@ -4,22 +4,31 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Tienda Oline</title>
+       
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <title>Tienda Oline</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet library="css" name="blueprint/screen.css"/>
+        <h:outputStylesheet library="css" name="micss.css"/>
+        <h:outputStylesheet library="css" name="WebGrid.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
     </h:head>
     <h:body>
-        MI TIENDA
+        <div class="span-24 last">
+            <h:outputText class="titulo" value="MI TIENDA"/>
+        </div>
+       
         
         <h:form>
             <p:megaMenu  style="margin-top:20px">
     <p:submenu label="Ventas" icon="ui-icon-check">
         <p:column>
             <p:submenu label="Cliente">
-                <p:menuitem value="Registrar cliente" url="#" />
+                <p:menuitem value="Registrar cliente" outcome="/cliente/List" />
                 </p:submenu>
             <p:submenu label="Venta">
-                <p:menuitem value="Registrar venta" url="#" />
-                <p:menuitem value="realizar venta" url="#" />
+                <p:menuitem value="Registrar venta" outcome="/ventas/List" />
+                <p:menuitem value="realizar venta"  outcome="/ventaProducto/List"  />
                 </p:submenu>
         </p:column>
 
@@ -29,11 +38,11 @@
  
         <p:column>
             <p:submenu label="Productos">
-                <p:menuitem value="Registrar nuevo producto" url="#" />
+                <p:menuitem value="Registrar nuevo producto" outcome="/producto/List" />
                 </p:submenu>
             <p:submenu label="compra">
-                <p:menuitem value="Registrar nueva compra" url="#" />
-                <p:menuitem value="Realizar nueva compra" url="#" />
+                <p:menuitem value="Registrar nueva compra" outcome="/compra/List" />
+                <p:menuitem value="Realizar nueva compra" outcome="/productoCompra/List" />
             </p:submenu>
         </p:column>
  
@@ -42,75 +51,36 @@
     <p:submenu label="Otros" icon="ui-icon-check">
         <p:column>
             <p:submenu label="Marca">
-                <p:menuitem value="Entertainment.1.1" url="#" />
-                <p:menuitem value="Entertainment.1.2" url="#" />
+                <p:menuitem value="Registrar marca de productos" outcome="/marca/List" />
+                
             </p:submenu>
             <p:submenu label="Proveedor">
-                <p:menuitem value="Entertainment.2.1" url="#" />
-                <p:menuitem value="Entertainment.2.2" url="#" />
-                <p:menuitem value="Entertainment.2.3" url="#" />
+                <p:menuitem value="Registrar nuevo proveedor" outcome="/proveedor/List" />
+                
             </p:submenu>
         </p:column>
  
         <p:column>
-            <p:submenu label="Empresas proveedores" icon="ui-icon-help">
-                <p:menuitem value="Entertainment.4.1" url="#" />
-                <p:menuitem value="Entertainment.4.2" url="#" />
+            <p:submenu label="Empresas proveedores" icon="ui-icon-circle">
+                <p:menuitem value="Registrar empresa" outcome="/empresaProveedor/List"  />
+                
             </p:submenu>
             <p:submenu label="Categoria">
-                <p:menuitem value="Entertainment.5.1" url="#" />
-                <p:menuitem value="Entertainment.5.2" url="#" />
-                <p:menuitem value="Entertainment.5.3" url="#" />
+                <p:menuitem value="Registrar categoria" outcome="/categoria/List" />
+                
             </p:submenu>
         </p:column>
     </p:submenu>
  
-    <p:submenu label="Tech" icon="ui-icon-contact">
-        <p:column>
-            <p:submenu label="Tech.1">
-                <p:menuitem value="Tech.1.1" url="#" />
-                <p:menuitem value="Tech.1.2" url="#" />
-            </p:submenu>
-            <p:submenu label="Tech.2">
-                <p:menuitem value="Tech.2.1" url="#" />
-                <p:menuitem value="Tech.2.2" url="#" />
-                <p:menuitem value="Tech.2.3" url="#" />
-            </p:submenu>
-        </p:column>
+   
  
-        <p:column>
-            <p:submenu label="Tech.4">
-                <p:menuitem value="Tech.4.1" url="#" />
-                <p:menuitem value="Tech.4.2" url="#" />
-            </p:submenu>
-        </p:column>
-    </p:submenu>
- 
-    <p:menuitem value="Salir" url="http://www.primefaces.org" icon="ui-icon-close" />
+    <p:menuitem value="Salir"  icon="ui-icon-close" />
 </p:megaMenu>
             
         </h:form>
-        <br />
-        <br />
-        <h:link outcome="/categoria/List" value="Show All Categoria Items"/>
-        <br />
-        <h:link outcome="/cliente/List" value="Show All Cliente Items"/>
-        <br />
-        <h:link outcome="/compra/List" value="Show All Compra Items"/>
-        <br />
-        <h:link outcome="/empresaProveedor/List" value="Show All EmpresaProveedor Items"/>
-        <br />
-        <h:link outcome="/marca/List" value="Show All Marca Items"/>
-        <br />
-        <h:link outcome="/producto/List" value="Show All Producto Items"/>
-        <br />
-        <h:link outcome="/productoCompra/List" value="Show All ProductoCompra Items"/>
-        <br />
-        <h:link outcome="/proveedor/List" value="Show All Proveedor Items"/>
-        <br />
-        <h:link outcome="/ventaProducto/List" value="Show All VentaProducto Items"/>
-        <br />
-        <h:link outcome="/ventas/List" value="Show All Ventas Items"/>
+       
+       
+      
     </h:body>
 
 
