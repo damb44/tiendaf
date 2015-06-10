@@ -20,7 +20,7 @@
                         <p:selectOneMenu id="idCliente" value="#{ventasController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditVentasRequiredMessage_idCliente}">
                             <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
                                            var="idClienteItem"
-                                           itemValue="#{idClienteItem}"/>
+                                           itemValue="#{clienteController.items}" itemLabel="#{clienteController.selected.PNombre}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{ventasController.create}" value="#{bundle.Save}" update="display,:VentasListForm:datalist,:growl" oncomplete="handleSubmit(args,'VentasCreateDialog');"/>

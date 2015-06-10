@@ -24,8 +24,8 @@
             <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
                 <h:form id="menuForm">
                     <p:menubar>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
+                        <p:menuitem value="Inicio" outcome="/index" icon="ui-icon-home"/>
+                        <p:submenu label="Acceso Directo" icon="ui-icon-check">
                             <p:menuitem value="Categoria" outcome="/categoria/List.xhtml" />
                             <p:menuitem value="Cliente" outcome="/cliente/List.xhtml" />
                             <p:menuitem value="Compra" outcome="/compra/List.xhtml" />
@@ -45,8 +45,8 @@
                 <ui:insert name="footer"/>
             </p:layoutUnit>
 
-            <p:layoutUnit position="center">
-                <ui:insert name="body"/>
+            <p:layoutUnit position="center" style="background-color:#4DB6AC;font-size: 30px;">
+                <ui:insert name="body" />
             </p:layoutUnit>
 
         </p:layout>

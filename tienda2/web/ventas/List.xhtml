@@ -5,7 +5,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
+<h:head>
+       
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <title>Tienda Oline</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet library="css" name="blueprint/screen.css"/>
+        <h:outputStylesheet library="css" name="micss.css"/>
+        <h:outputStylesheet library="css" name="WebGrid.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+    </h:head>
     <ui:composition template="/template.xhtml">
 
 
@@ -43,15 +52,15 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVentasTitle_idCliente}"/>
+                                <h:outputText value="#{bundle.ListVentasTitle_idCliente}" />
                             </f:facet>
-                            <h:outputText value="#{item.idCliente}"/>
+                            <h:outputText value="#{item.id}" style="background-color: red;" />
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{ventasController.prepareCreate}" update=":VentasCreateForm" oncomplete="PF('VentasCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VentasViewForm" oncomplete="PF('VentasViewDialog').show()" disabled="#{empty ventasController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":VentasEditForm" oncomplete="PF('VentasEditDialog').show()" disabled="#{empty ventasController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{ventasController.destroy}" update=":growl,datalist" disabled="#{empty ventasController.selected}"/>
+                            <p:commandButton id="createButton" class="boton" icon="ui-icon-plus"   value="REGISTRAR" actionListener="#{ventasController.prepareCreate}" update=":VentasCreateForm" oncomplete="PF('VentasCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="VER" update=":VentasViewForm" oncomplete="PF('VentasViewDialog').show()" disabled="#{empty ventasController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="EDITAR" update=":VentasEditForm" oncomplete="PF('VentasEditDialog').show()" disabled="#{empty ventasController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="ELIMINAR" actionListener="#{ventasController.destroy}" update=":growl,datalist" disabled="#{empty ventasController.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

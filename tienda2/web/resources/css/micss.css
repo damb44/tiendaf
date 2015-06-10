@@ -1,5 +1,5 @@
 body {
-  background-color: #B2DFDB;
+  background: url('../resources/images/fondo.jpg');
   font-family: 'Roboto Condensed', sans-serif;
  
 }
@@ -89,12 +89,21 @@ label{
 .titulo{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 60px;
-    color: #004D40;    
+    color: #fff;    
 }
 //-----
-.contenido{
-    background-color: red;
-    height: 500px;
-    width: 100px;
+
+
+.panel{
+    background: #4DB6AC;
     
+}
+.dtable{
+    
+    background: #80CBC4;
+    font-size: 3em;
+}
+.boton{
+    background: red;
+       
 }
