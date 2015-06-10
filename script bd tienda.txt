@@ -82,8 +82,7 @@ CREATE TABLE `tienda`.`ventas`(
 `fecha`date,
 primary key(`id`));
 
-//-----------------------------------
-
+//---
 ALTER TABLE `tienda`.`producto` 
 ADD CONSTRAINT `producto`
 FOREIGN KEY (`id_marca`) 
