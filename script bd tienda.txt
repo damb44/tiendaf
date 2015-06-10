@@ -1,4 +1,4 @@
-CREATE TABLE `tienda`.`producto` (
+CREATE TABLE `tiendaf`.`producto` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   `fecha_venc` DATE NOT NULL,
@@ -9,25 +9,25 @@ CREATE TABLE `tienda`.`producto` (
   `id_categoria` INT NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `tienda`.`producto_compra` (
+CREATE TABLE `tiendaf`.`producto_compra` (
 `id_producto` INT NOT NULL,
 `id_compra` INT NOT NULL,
 `cantidad` INT NOT NULL,
 `precio_compra` DECIMAL(16,2) NOT NULL,
 PRIMARY KEY (`id_producto`,`id_compra`));
 
-CREATE TABLE `tienda`.`marca`(
+CREATE TABLE `tiendaf`.`marca`(
 `id` INT NOT NULL,
 `nombre` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`));
 
-CREATE TABLE `tienda`.`categoria` (
+CREATE TABLE `tiendaf`.`categoria` (
 `id` INT NOT NULL,
 `nombre` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `tienda`.`proveedor`(
+CREATE TABLE `tiendaf`.`proveedor`(
 `id` INT NOT NULL  AUTO_INCREMENT,
 `p_nombre` varchar(100) not null,
 `s_nombre` varchar(100),
@@ -40,7 +40,7 @@ CREATE TABLE `tienda`.`proveedor`(
 `id_empresa` int not null,
 PRIMARY KEY(`id`)); 
 
-CREATE TABLE `tienda`.`empresa_proveedor`(
+CREATE TABLE `tiendaf`.`empresa_proveedor`(
 `id` int not null auto_increment,
 `nombre` varchar(100) not null,
 `direccion` varchar(100) not null,
@@ -49,21 +49,21 @@ CREATE TABLE `tienda`.`empresa_proveedor`(
 PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `tienda`.`compra`(
+CREATE TABLE `tiendaf`.`compra`(
 `id` int not null auto_increment,
 `id_proveedor` int not null,
 `fecha_compra` date,
 primary key(`id`)
 );
 
-CREATE TABLE `tienda`.`venta_producto`(
+CREATE TABLE `tiendaf`.`venta_producto`(
 `id_venta` int not null,
 `id_producto` int not null,
 `cantidad` int not null,
 `valor` decimal(16,2),
 PRIMARY KEY (`id_venta`,`id_producto`));
 
-CREATE TABLE `tienda`.`cliente`(
+CREATE TABLE `tiendaf`.`cliente`(
 `id` int not null auto_increment,
 `p_nombre` varchar(100) not null,
 `s_nombre` varchar(100),
@@ -76,62 +76,62 @@ CREATE TABLE `tienda`.`cliente`(
 primary key (`id`));
 
 
-CREATE TABLE `tienda`.`ventas`(
+CREATE TABLE `tiendaf`.`ventas`(
 `id` int not null auto_increment,
 `id_cliente` int not null,
 `fecha`date,
 primary key(`id`));
 
 //---
-ALTER TABLE `tienda`.`producto` 
+ALTER TABLE `tiendaf`.`producto` 
 ADD CONSTRAINT `producto`
 FOREIGN KEY (`id_marca`) 
-REFERENCES `tienda`.`marca` (`id`);
+REFERENCES `tiendaf`.`marca` (`id`);
 
-ALTER TABLE `tienda`.`producto` 
+ALTER TABLE `tiendaf`.`producto` 
 ADD CONSTRAINT `proveedor`
 FOREIGN KEY (`id_proveedor`) 
-REFERENCES `tienda`.`proveedor` (`id`);
+REFERENCES `tiendaf`.`proveedor` (`id`);
 
-ALTER TABLE `tienda`.`producto` 
+ALTER TABLE `tiendaf`.`producto` 
 ADD CONSTRAINT `categoria`
 FOREIGN KEY (`id_categoria`) 
-REFERENCES `tienda`.`categoria` (`id`);
+REFERENCES `tiendaf`.`categoria` (`id`);
 
-ALTER TABLE `tienda`.`producto_compra` 
+ALTER TABLE `tiendaf`.`producto_compra` 
 ADD CONSTRAINT `compra`
 FOREIGN KEY (`id_producto`) 
-REFERENCES `tienda`.`producto` (`id`);
+REFERENCES `tiendaf`.`producto` (`id`);
 
-ALTER TABLE `tienda`.`producto_compra` 
+ALTER TABLE `tiendaf`.`producto_compra` 
 ADD CONSTRAINT `compras`
 FOREIGN KEY (`id_compra`) 
-REFERENCES `tienda`.`compra` (`id`);
+REFERENCES `tiendaf`.`compra` (`id`);
 
-ALTER TABLE `tienda`.`proveedor` 
+ALTER TABLE `tiendaf`.`proveedor` 
 ADD CONSTRAINT `prov`
 FOREIGN KEY (`id_empresa`) 
-REFERENCES `tienda`.`empresa_proveedor` (`id`);
+REFERENCES `tiendaf`.`empresa_proveedor` (`id`);
 
-ALTER TABLE `tienda`.`compra` 
+ALTER TABLE `tiendaf`.`compra` 
 ADD CONSTRAINT `com`
 FOREIGN KEY (`id_proveedor`) 
-REFERENCES `tienda`.`proveedor` (`id`);
+REFERENCES `tiendaf`.`proveedor` (`id`);
 
-ALTER TABLE `tienda`.`venta_producto` 
+ALTER TABLE `tiendaf`.`venta_producto` 
 ADD CONSTRAINT `ventap`
 FOREIGN KEY (`id_venta`) 
-REFERENCES `tienda`.`ventas` (`id`);
+REFERENCES `tiendaf`.`ventas` (`id`);
 
-ALTER TABLE `tienda`.`venta_producto` 
+ALTER TABLE `tiendaf`.`venta_producto` 
 ADD CONSTRAINT `ventapr`
 FOREIGN KEY (`id_producto`) 
-REFERENCES `tienda`.`producto` (`id`);
+REFERENCES `tiendaf`.`producto` (`id`);
 
 
-ALTER TABLE `tienda`.`ventas` 
+ALTER TABLE `tiendaf`.`ventas` 
 ADD CONSTRAINT `cliente`
 FOREIGN KEY (`id_cliente`) 
-REFERENCES `tienda`.`cliente` (`id`);
+REFERENCES `tiendaf`.`cliente` (`id`);
 
 
